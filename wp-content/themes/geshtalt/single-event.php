@@ -2,6 +2,7 @@
 get_header();
 
 $page_id = get_the_ID();
+$test;
 
 $intro_img_id = carbon_get_post_meta($page_id, 'event_img');
 $intro_img_src = wp_get_attachment_image_url($intro_img_id, 'full');
