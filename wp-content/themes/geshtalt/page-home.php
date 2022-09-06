@@ -101,7 +101,7 @@ $intro_logo_src = wp_get_attachment_image_url($intro_logo_id, 'full');
                                     <div class="intro__news-heading"><?php the_title(); ?></div>
                                     <div class="intro__news-text"><?php the_excerpt(); ?></div>
                                     <div class="intro__news-btns">
-                                        <button class="button intro__news-btn mod-white">ЗАписаться</button>
+                                        <button class="button intro__news-btn mod-white" data-path="event">ЗАписаться</button>
                                         <a href="<?php echo get_permalink(); ?>" class="button intro__news-btn mod-transparent">Подробнее</a>
                                     </div>
                                 </div>

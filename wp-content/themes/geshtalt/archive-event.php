@@ -15,10 +15,10 @@ $page_id = get_the_ID();
         </div>
         <div class="filter events__filter">
             <label class="filter__item">
-                <input class="visually-hidden" type="radio" name="filter" value="Новости"><span class="filter__name">Новости</span>
+                <input class="visually-hidden" type="radio" name="filter" value="Актуальные"><span class="filter__name">Актуальные</span>
             </label>
             <label class="filter__item">
-                <input class="visually-hidden" type="radio" name="filter" value="СМИ о нас"><span class="filter__name">СМИ о нас</span>
+                <input class="visually-hidden" type="radio" name="filter" value="Прошедшие"><span class="filter__name">Прошедшие</span>
             </label>
         </div>
         <ul class="events__list">
@@ -32,12 +32,12 @@ $page_id = get_the_ID();
 
             <?php endif; ?>
         </ul>
-        <div class="events__grid-container">
+        <!-- <div class="events__grid-container">
             <div class="events__block"></div>
             <div class="events__block">
                 <button class="events__more-btn">Показать еще</button>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
