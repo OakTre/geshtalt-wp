@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="event__block">
-        <header class="event__info"><span class="event__legend"><?php echo carbon_get_post_meta($events_id, 'event-type'); ?></span>
+        <header class="event__info"><span class="event__legend">Интенсив</span>
             <a class="event__link" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
             <div class="event__text-wrapper">
                 <svg class="icon icon-arrow-bottom events__icon" width="24" heihgt="24">

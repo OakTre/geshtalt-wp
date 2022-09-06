@@ -49,7 +49,7 @@
             ]);
             ?>
           </nav>
-          <button class="button header__btn" data-path="program">Учиться</button>
+          <button class="button header__btn">Учиться</button>
           <button class="header__burger-btn" aria-label="Открыть меню"><span></span><span></span><span></span>
           </button>
         </div>
