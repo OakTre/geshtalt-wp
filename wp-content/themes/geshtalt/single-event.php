@@ -23,7 +23,7 @@ $error_img = carbon_get_post_meta($page_id, 'event_img') ? $intro_img_src : $img
             <div class="detail-section__block">
                 <h1 class="detail-section__heading"><?php the_title(); ?></h1>
                 <div class="detail-section__info">
-                    <button class="button detail-section__btn">Записаться</button>
+                    <button class="button detail-section__btn" data-path="event">Записаться</button>
                     <div class="detail-section__date">
                         <span class="detail-section__date-legend">Дата проведения</span>
                         <span class="detail-section__date-num"><?php echo carbon_get_post_meta($page_id, 'event-dates'); ?></span>
@@ -37,37 +37,41 @@ $error_img = carbon_get_post_meta($page_id, 'event_img') ? $intro_img_src : $img
                 <?php the_content(); ?>
             </div>
         </div>
-        <div class="detail-section__content-imgs js-parent-page-slider" data-slides-number="1" data-slides-number-mobile="1">
-            <div class="_block">
-                <div class="slider-nav detail-section__slider-nav">
-                    <button class="slider-nav__btn js-slider-btn-prev">
-                        <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
-                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
-                        </svg>
-                    </button>
-                    <button class="slider-nav__btn js-slider-btn-next">
-                        <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
-                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
-                        </svg>
-                    </button>
+        <?php
+        $gallery_imgs = carbon_get_post_meta($page_id, 'event-gallery');
+        ?>
+        <?php if (count($gallery_imgs) !== 0) { ?>
+            <div class="detail-section__content-imgs js-parent-page-slider" data-slides-number="1" data-slides-number-mobile="1">
+                <div class="_block">
+                    <div class="slider-nav detail-section__slider-nav">
+                        <button class="slider-nav__btn js-slider-btn-prev">
+                            <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
+                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
+                            </svg>
+                        </button>
+                        <button class="slider-nav__btn js-slider-btn-next">
+                            <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
+                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="_block">
-                <div class="detail-section__content-slider swiper js-page-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide detail-section__content-slide">
-                            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/img1.jpg" src="#" alt="">
-                        </div>
-                        <div class="swiper-slide detail-section__content-slide">
-                            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/img1.jpg" src="#" alt="">
-                        </div>
-                        <div class="swiper-slide detail-section__content-slide">
-                            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/img1.jpg" src="#" alt="">
+                <div class="_block">
+                    <div class="detail-section__content-slider swiper js-page-slider">
+                        <div class="swiper-wrapper">
+                            <?
+                            foreach ($gallery_imgs as $img_id) :
+                                $gallery_img_src = wp_get_attachment_image_url($img_id, 'full');
+                            ?>
+                                <div class="swiper-slide detail-section__content-slide">
+                                    <img class="lazyload" data-src="<?php echo $gallery_img_src; ?>" src="#" alt="">
+                                </div>
+                            <? endforeach; ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 

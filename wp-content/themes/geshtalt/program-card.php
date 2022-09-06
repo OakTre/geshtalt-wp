@@ -19,7 +19,7 @@
         <div class="card__info-descr"><?php the_excerpt(); ?></div>
     </div>
     <div class="card__btns">
-        <button class="button card__btn">Записаться</button>
+        <button class="button card__btn" data-path="program">Записаться</button>
         <button class="button card__btn mod-transparent mod-black"><span class="card__btn-txt">Подробнее</span>
         </button>
     </div>

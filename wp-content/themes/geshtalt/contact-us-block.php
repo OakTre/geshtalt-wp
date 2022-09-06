@@ -5,7 +5,7 @@
                 <p>Начнем достигать результатов вместе</p>
             </div>
             <p class="contact-us__info">Учиться у нас может любой желающий и не важно какой уровень знаний сейчас присутствует</p>
-            <button class="button contact-us__btn mod-white">Подать заявку</button>
+            <button class="button contact-us__btn mod-white" data-path="program">Подать заявку</button>
         </div>
     </div>
 </section>
