@@ -140,7 +140,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
                 <div class="about__content">
                     <div class="about__content-block">
                         <p><?php echo carbon_get_post_meta($page_id, 'about_text'); ?></p>
-                        <a href="/" class="button about__btn mod-transparent mod-black">Подробнее об институте</a>
+                        <!-- <a href="/" class="button about__btn mod-transparent mod-black">Подробнее об институте</a> -->
                     </div>
                     <div class="about__content-block">
                         <div class="about__content-img-wrapper" style="background-image:url(<?php echo $about_logo_src; ?>);"></div>
@@ -161,7 +161,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-bottom"></use>
                     </svg>
                 </a><span class="catalog__section-name"><?php echo carbon_get_post_meta($page_id, 'index_catalog_text'); ?></span>
-                <a href="/" class="button catalog__btn mod-transparent mod-black">Подробнее</a>
+                <!-- <a href="/" class="button catalog__btn mod-transparent mod-black">Подробнее</a> -->
             </div>
             <div class="catalog__block">
                 <h3 class="catalog__legend"><span>Подготовительные курсы</span>

@@ -3,7 +3,7 @@
 ?>
 
 
-<div class="card"><span class="card__tag">caption</span>
+<div class="card"><span class="card__tag"><?php echo carbon_get_post_meta($events_id, 'program_caption'); ?></span>
     <h3 class="card__heading"><?php the_title(); ?></h3>
     <div class="card__info">
         <ul class="card__info-list">
@@ -20,7 +20,7 @@
     </div>
     <div class="card__btns">
         <button class="button card__btn" data-path="program">Записаться</button>
-        <button class="button card__btn mod-transparent mod-black"><span class="card__btn-txt">Подробнее</span>
+        <!-- <button class="button card__btn mod-transparent mod-black"><span class="card__btn-txt">Подробнее</span> -->
         </button>
     </div>
 </div>

@@ -109,4 +109,5 @@ Container::make('post_meta', 'Дополнительные поля')
   ->add_tab('Даты', [
     Field::make('text', 'program_time', 'Срок обучения')->set_width(50),
     Field::make('text', 'program_cost', 'Стоимость')->set_width(50),
+    Field::make('text', 'program_caption', 'Описание-тег')->set_width(50),
   ]);

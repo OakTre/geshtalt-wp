@@ -23,6 +23,7 @@ function site_scripts() {
 
   wp_enqueue_style( 'style', get_stylesheet_uri() );
   wp_enqueue_style( 'backend', get_template_directory_uri() . '/assets/css/backend.css', array(), '1.1.0' );
+  wp_enqueue_script( 'axios', 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js', array(), '1.1.0', true );
   wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '1.2.1', true );
   wp_enqueue_script( 'backend-js', get_template_directory_uri() . '/assets/js/backend.js', array(), '1.1.0', true );
 }
