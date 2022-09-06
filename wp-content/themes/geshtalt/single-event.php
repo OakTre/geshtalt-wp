@@ -18,7 +18,12 @@ $error_img = carbon_get_post_meta($page_id, 'event_img') ? $intro_img_src : $img
     <div class="site-container">
         <div class="detail-section__grid-container">
             <div class="detail-section__block">
-                <span class="detail-section__section-name section-name">Мероприятия</span>
+                <a href="<?php echo get_site_url() . '/event/' ?>" class="detail-section__section-name section-name">
+                    Мероприятия
+                    <svg class="icon icon-arrow-long detail-section__section-name-arrow" width="45" height="8">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-long"></use>
+                    </svg>
+                </a>
             </div>
             <div class="detail-section__block">
                 <h1 class="detail-section__heading"><?php the_title(); ?></h1>
