@@ -85,7 +85,6 @@ Container::make('post_meta', 'Дополнительные поля')
   ->show_on_post_type('event')
 
   ->add_tab('Даты', [
-    Field::make('text', 'event-type', 'Тип мероприятия')->set_width(50),
     Field::make('text', 'event-date-start', 'Начало')->set_width(50),
     Field::make('text', 'event-date-end', 'Конец')->set_width(50),
     Field::make('text', 'event-dates', 'Дата проведения')->set_width(50),

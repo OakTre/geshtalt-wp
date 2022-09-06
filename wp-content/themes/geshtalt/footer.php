@@ -56,60 +56,12 @@
     </div>
 </footer>
 </div>
-
 <div class="modal">
-    <div class="modal__container" data-target="event">
+    <div class="modal__container" data-target="modal">
         <div class="modal__content">
             <button class="button-reset modal__close-btn modal-close" type="button"><span></span><span></span>
             </button>
-            <div class="modal__content-inner">
-                <div class="modal__content-inner-block">
-                    <div class="modal__legend">Записаться на мероприятие</div>
-                    <p class="modal__legend-text">Перед началом обучения необходимо пройти собеседование!</p>
-                </div>
-                <div class="modal__content-inner-block">
-                    <form class="modal-form" data-need-validation>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input" type="text" name="name" data-parsley-required placeholder="Имя">
-                        </label>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input js-phone-mask" type="text" name="tel" data-parsley-required placeholder="Телефон">
-                        </label>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input" type="email" name="email" data-parsley-required placeholder="Почта">
-                        </label>
-                        <button class="button mod-white modal-form__btn">хочу Учиться</button>
-                        <p class="modal-form__agree">Нажимая кнопку “хочу учиться” вы подтверждаете согласие на использование политики конфиденциальности</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal__container" data-target="program">
-        <div class="modal__content">
-            <button class="button-reset modal__close-btn modal-close" type="button"><span></span><span></span>
-            </button>
-            <div class="modal__content-inner">
-                <div class="modal__content-inner-block">
-                    <div class="modal__legend">Записаться на обучение</div>
-                    <p class="modal__legend-text">Перед началом обучения необходимо пройти собеседование!</p>
-                </div>
-                <div class="modal__content-inner-block">
-                    <form class="modal-form" data-need-validation>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input" type="text" name="name" data-parsley-required placeholder="Имя">
-                        </label>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input js-phone-mask" type="text" name="tel" data-parsley-required placeholder="Телефон">
-                        </label>
-                        <label class="modal-form__label">
-                            <input class="modal-form__input" type="email" name="email" data-parsley-required placeholder="Почта">
-                        </label>
-                        <button class="button mod-white modal-form__btn">хочу Учиться</button>
-                        <p class="modal-form__agree">Нажимая кнопку “хочу учиться” вы подтверждаете согласие на использование политики конфиденциальности</p>
-                    </form>
-                </div>
-            </div>
+            <div class="modal__legend">Поздравляем вы открыли модалку!</div>
         </div>
     </div>
 </div>
