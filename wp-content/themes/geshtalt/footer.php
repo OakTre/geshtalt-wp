@@ -68,7 +68,7 @@
                     <p class="modal__legend-text">Перед началом обучения необходимо пройти собеседование!</p>
                 </div>
                 <div class="modal__content-inner-block">
-                    <form class="modal-form js-event-form" action="/wp-json/contact-form-7/v1/contact-forms/38/feedback" data-need-validation>
+                    <form class="modal-form js-event-form" action="/wp-json/contact-form-7/v1/contact-forms/48/feedback" data-need-validation>
                         <label class="modal-form__label">
                             <input class="modal-form__input" type="text" name="name" data-parsley-required placeholder="Имя">
                         </label>
@@ -95,7 +95,7 @@
                     <p class="modal__legend-text">Перед началом обучения необходимо пройти собеседование!</p>
                 </div>
                 <div class="modal__content-inner-block">
-                    <form class="modal-form" data-need-validation>
+                    <form class="modal-form js-program-form" action="/wp-json/contact-form-7/v1/contact-forms/48/feedback" data-need-validation>
                         <label class="modal-form__label">
                             <input class="modal-form__input" type="text" name="name" data-parsley-required placeholder="Имя">
                         </label>
