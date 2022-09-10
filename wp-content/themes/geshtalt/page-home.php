@@ -173,7 +173,15 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
 
                     $programs_args = [
                         'post_type' => 'program',
-                        'post__in' => $programs_ids
+                        'post__in' => $programs_ids,
+                        'orderby' => 'text_field',
+                        'order' => 'asc',
+                        'meta_query' => array(
+                            'text_field' => array(
+                                'key' => 'program_caption',
+                                'compare' => 'EXISTS',
+                            ),
+                        ),
                     ];
                     $programs_query = new WP_Query($programs_args);
                     ?>
@@ -195,7 +203,15 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
 
                     $programs1_args = [
                         'post_type' => 'program',
-                        'post__in' => $programs1_ids
+                        'post__in' => $programs1_ids,
+                        'orderby' => 'text_field',
+                        'order' => 'asc',
+                        'meta_query' => array(
+                            'text_field' => array(
+                                'key' => 'program_caption',
+                                'compare' => 'EXISTS',
+                            ),
+                        ),
                     ];
                     $programs1_query = new WP_Query($programs1_args);
                     ?>
@@ -217,7 +233,15 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
 
                     $programs2_args = [
                         'post_type' => 'program',
-                        'post__in' => $programs2_ids
+                        'post__in' => $programs2_ids,
+                        'orderby' => 'text_field',
+                        'order' => 'asc',
+                        'meta_query' => array(
+                            'text_field' => array(
+                                'key' => 'program_caption',
+                                'compare' => 'EXISTS',
+                            ),
+                        ),
                     ];
                     $programs2_query = new WP_Query($programs2_args);
                     ?>
