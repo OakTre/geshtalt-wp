@@ -18,12 +18,12 @@ Container::make('post_meta', 'Дополнительные поля')
     Field::make('image', 'intro_img', 'Изображение на фоне'),
     Field::make('image', 'intro_logo', 'Логотип'),
     Field::make('association', 'intro_event_items', 'Cобытия')
-    ->set_types([
-      [
-        'type'      => 'post',
-        'post_type' => 'event',
-      ]
-    ]),
+      ->set_types([
+        [
+          'type'      => 'post',
+          'post_type' => 'event',
+        ]
+      ]),
   ])
 
   ->add_tab('Второй экран(О компании)', [
@@ -54,7 +54,7 @@ Container::make('post_meta', 'Дополнительные поля')
         ]
       ]),
   ])
-  
+
   ->add_tab('Программы', [
     Field::make('association', 'index_program_items1', 'Подготовительные курсы')
       ->set_types([
@@ -63,14 +63,14 @@ Container::make('post_meta', 'Дополнительные поля')
           'post_type' => 'program',
         ]
       ]),
-      Field::make('association', 'index_program_items2', 'Основные направления')
+    Field::make('association', 'index_program_items2', 'Основные направления')
       ->set_types([
         [
           'type'      => 'post',
           'post_type' => 'program',
         ]
       ]),
-      Field::make('association', 'index_program_items3', 'Специализации')
+    Field::make('association', 'index_program_items3', 'Специализации')
       ->set_types([
         [
           'type'      => 'post',
@@ -79,6 +79,37 @@ Container::make('post_meta', 'Дополнительные поля')
       ]),
   ]);
 
+// архив программы
+Container::make('post_meta', 'Дополнительные поля')
+  ->show_on_page(58)
+
+  ->add_tab('Мероприятия', [
+    Field::make('text', 'catalog_events_heading', 'Текст-заголовок')
+      ->set_width(50),
+    Field::make('text', 'catalog_events_text', 'Текст-описание')
+      ->set_width(50),
+    Field::make('association', 'catalog_event_items', 'Cобытия')
+      ->set_types([
+        [
+          'type'      => 'post',
+          'post_type' => 'event',
+        ]
+      ]),
+  ]);
+
+// архив новостей
+Container::make('post_meta', 'Дополнительные поля')
+  ->show_on_page(65)
+
+  ->add_tab('Главная новость', [
+    Field::make('association', 'news_main_items', 'Главная новость')
+      ->set_types([
+        [
+          'type'      => 'post',
+          'post_type' => 'news',
+        ]
+      ]),
+  ]);
 
 // мероприятия
 Container::make('post_meta', 'Дополнительные поля')
@@ -110,4 +141,41 @@ Container::make('post_meta', 'Дополнительные поля')
     Field::make('text', 'program_time', 'Срок обучения')->set_width(50),
     Field::make('text', 'program_cost', 'Стоимость')->set_width(50),
     Field::make('text', 'program_caption', 'Описание-тег')->set_width(50),
+    Field::make('rich_text', 'program_themes', 'Основные темы'),
+    Field::make('complex', 'program_feautures', 'Чему вы научитесь')
+      ->add_fields([
+        Field::make('text', 'title', 'В процессе прохождения экспериентального уровня обучающиеся')->set_width(50),
+        Field::make('rich_text', 'text', 'Описание')->set_width(50),
+      ]),
+    Field::make('association', 'program_items', 'Преподаватели')
+      ->set_types([
+        [
+          'type'      => 'post',
+          'post_type' => 'teacher',
+        ]
+      ]),
+    Field::make('media_gallery', 'program_gallery', 'Галлерея')->set_type(['image']),
+  ]);
+
+// Преподаватели
+Container::make('post_meta', 'Дополнительные поля')
+  ->show_on_post_type('teacher')
+
+  ->add_tab('Даты', [
+    Field::make('rich_text', 'teacher_descr', 'Специализации')
+  ]);
+
+// новости
+Container::make('post_meta', 'Дополнительные поля')
+  ->show_on_post_type('news')
+
+  ->add_tab('Даты', [
+    Field::make( 'checkbox', 'news_item_main', 'Выделить новость' ),
+    Field::make('association', 'news_items', 'Другие новости')
+      ->set_types([
+        [
+          'type'      => 'post',
+          'post_type' => 'news',
+        ]
+      ]),
   ]);

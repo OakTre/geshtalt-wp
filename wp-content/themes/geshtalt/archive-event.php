@@ -2,7 +2,16 @@
 get_header();
 
 $page_id = get_the_ID();
+
+$catalog_cat_items = get_terms([
+    'taxonomy' => 'event-categories',
+    'parent' => 0,
+]);
 ?>
+
+<div class="page-preloader">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-small.svg" alt="">
+</div>
 
 <section class="page-intro" style="background-image:url(<?php echo get_template_directory_uri(); ?>/assets/images/page-intro/img2.jpg);"></section>
 <section class="events events--page">
@@ -13,15 +22,18 @@ $page_id = get_the_ID();
                 <p>Мы постоянно проводим образовательные мероприятия, приглашаем опытных специалистов на лекции</p>
             </div>
         </div>
-        <div class="filter events__filter">
-            <label class="filter__item">
-                <input class="visually-hidden" type="radio" name="filter" value="Актуальные"><span class="filter__name">Актуальные</span>
-            </label>
-            <label class="filter__item">
-                <input class="visually-hidden" type="radio" name="filter" value="Прошедшие"><span class="filter__name">Прошедшие</span>
-            </label>
-        </div>
-        <ul class="events__list">
+        <form class="filter events__filter js-filter-form">
+            <input type="hidden" name="action" value="myfilter">
+            <input type="hidden" name="taxonomy" value="event">
+
+            <?php foreach ($catalog_cat_items as $item) : ?>
+                <label class="filter__item">
+                    <input class="visually-hidden js-filter-item" type="radio" name="filter" value="<?php echo $item->slug ?>">
+                    <span class="filter__name"><?php echo $item->name ?></span>
+                </label>
+            <?php endforeach; ?>
+        </form>
+        <ul class="events__list js-filter-list">
             <?php if (have_posts()) : ?>
 
                 <?php while (have_posts()) : the_post(); ?>

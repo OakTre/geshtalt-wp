@@ -20,7 +20,8 @@
     </div>
     <div class="card__btns">
         <button class="button card__btn" data-path="program">Записаться</button>
-        <!-- <button class="button card__btn mod-transparent mod-black"><span class="card__btn-txt">Подробнее</span> -->
-        </button>
+        <a href="<?php echo get_permalink(); ?>" class="button card__btn mod-transparent mod-black">
+            <span class="card__btn-txt">Подробнее</span>
+        </a>
     </div>
 </div>

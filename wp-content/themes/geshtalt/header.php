@@ -27,9 +27,10 @@
     $current_url = get_permalink(get_the_ID());
     $derectory = explode('/', $current_url);
     $last = $derectory[count($derectory) - 2];
+    $prelast = $derectory[count($derectory) - 3];
     ?>
 
-    <header class="header <?php echo $header_class; ?> <?php if ($last !== 'kontakty') echo "header--white"; ?>">
+    <header class="header <?php echo $header_class; ?> <?php if ($last === 'event' || $prelast === 'event' ) echo "header--white"; ?>">
       <div class="site-container header__container grid-container">
         <div class="header__block">
           <a class="header__logo" href="<?php echo get_home_url(); ?>">
@@ -38,7 +39,7 @@
           </a>
         </div>
         <div class="header__block">
-          <!-- <a class="header__legend-link" href="./education.html">Образование</a> -->
+          <a class="header__legend-link" href="<?php echo get_site_url() . '/programmy/' ?>">Образование</a>
           <a class="header__legend-link" href="<?php echo get_site_url() . '/event/' ?>">Мероприятия</a>
           <nav class="header__nav nav">
             <?php
