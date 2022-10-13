@@ -10,7 +10,7 @@
                 </a>
             </div>
             <div class="footer__block">
-                <!-- <a class="footer__legend-link" href="/">Образование</a> -->
+                <a class="footer__legend-link" href="<?php echo get_site_url() . '/programmy/' ?>">Образование</a>
                 <a class="footer__legend-link" href="<?php echo get_site_url() . '/event/' ?>">Мероприятия</a>
                 <nav class="footer__nav">
                     <?php

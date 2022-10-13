@@ -21,8 +21,10 @@
             </div>
         </header>
         <div class="event__img-wrapper">
-            <button class="button mod-white event__mobile-btn">ЗАписаться</button>
-            <img class="lazyload event__img" src="#" data-src="<?php echo get_the_post_thumbnail_url($events_id, 'carts'); ?>" alt="<?php the_title(); ?>">
+            <button class="button mod-white event__mobile-btn" data-path="event">ЗАписаться</button>
+            <a href="<?php echo get_permalink(); ?>">
+                <img class="lazyload event__img" src="#" data-src="<?php echo get_the_post_thumbnail_url($events_id, 'carts'); ?>" alt="<?php the_title(); ?>">
+            </a>
         </div>
     </div>
 </article>

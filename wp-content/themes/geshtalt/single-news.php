@@ -8,7 +8,12 @@ $page_id = get_the_ID();
     <div class="site-container">
         <div class="detail-section__grid-container">
             <div class="detail-section__block">
-                <a href="<?php echo get_site_url() . '/news/' ?>" class="detail-section__section-name section-name">Пресс-центр</a>
+                <a href="<?php echo get_site_url() . '/news/' ?>" class="detail-section__section-name section-name">
+                    Пресс-центр
+                    <svg class="icon icon-arrow-long detail-section__section-name-arrow" width="45" height="8">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-long"></use>
+                    </svg>
+                </a>
             </div>
             <div class="detail-section__block">
                 <h1 class="detail-section__heading"><?php the_title(); ?></h1>
@@ -32,12 +37,12 @@ $page_id = get_the_ID();
                 <div class="slider-nav news__nav">
                     <button class="slider-nav__btn js-slider-btn-prev">
                         <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
-                            <use xlink:href="assets/images/sprites/sprite-mono.svg#shevron-left"></use>
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
                         </svg>
                     </button>
                     <button class="slider-nav__btn js-slider-btn-next">
                         <svg class="icon icon-shevron-left slider-nav__icon" width="7" height="14">
-                            <use xlink:href="assets/images/sprites/sprite-mono.svg#shevron-left"></use>
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#shevron-left"></use>
                         </svg>
                     </button>
                 </div>

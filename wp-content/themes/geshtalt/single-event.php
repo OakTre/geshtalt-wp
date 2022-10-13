@@ -9,9 +9,24 @@ $intro_img_src = wp_get_attachment_image_url($intro_img_id, 'full');
 $img = get_template_directory_uri() . '/assets/images/page-intro/img3.jpg';
 
 $error_img = carbon_get_post_meta($page_id, 'event_img') ? $intro_img_src : $img;
+$link = carbon_get_post_meta($page_id, 'event_link');
 ?>
 
-<section class="page-intro" style="background-image:url(<?php echo $error_img; ?>);"></section>
+<section class="page-intro" style="background-image:url(<?php echo $error_img; ?>);">
+    <?php if ($link) { ?>
+        <div class="site-container">
+            <div class="page-intro__link">
+                <svg class="icon icon-arrow-top-big page-intro__link-icon" width="36" height="36">
+                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
+                </svg>
+                <div class="page-intro__link-info">
+                    <a href="<?php echo $link; ?>" target="_blanc"><?php echo carbon_get_post_meta($page_id, 'event_link_name'); ?></a>
+                    <span>Сайт мероприятия</span>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</section>
 
 <section class="detail-section">
     <img class="detail-section__bg-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/detail-bg.svg" alt="">

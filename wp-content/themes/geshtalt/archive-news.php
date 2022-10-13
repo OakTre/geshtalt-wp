@@ -79,7 +79,7 @@ $catalog_cat_items = get_terms([
 
                     <?php endif; ?>
                 </ul>
-                <button class="news-page-content__show-more">ПОказать еще</button>
+                <!-- <button class="news-page-content__show-more">ПОказать еще</button> -->
             </div>
         </div>
     </div>

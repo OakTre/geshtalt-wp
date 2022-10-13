@@ -273,7 +273,9 @@ function true_filter_function()
     if ($taxonomy === 'news') {
       echo get_template_part('news-card');
     } else if ($taxonomy === 'event') {
+      echo '<li class="events__item">';
       echo get_template_part('event-cart');
+      echo '</li>';
     } else if ($taxonomy === 'teacher') {
       echo '<li class="teachers-list__item">';
       echo get_template_part('teacher-card');

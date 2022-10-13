@@ -1,7 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
 .include-page {
     margin-bottom: 7rem;
 }
@@ -29,6 +25,22 @@ html {
 }
 
 
+.error-page h1 {
+    font: var(--font-h1);
+    letter-spacing: -0.06em;
+    margin-bottom: 5rem;
+}
+
+
+.mod-left-auto {
+    margin-left: auto;
+}
+
+.events .event__link:hover {
+    color: var(--color-secondary-blue);
+}
+
+
 @keyframes scales {
     from {
         transform: scale(1);
@@ -40,5 +52,39 @@ html {
 
     to {
         transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .header.is-hidden .header__burger-btn span {
+        background-color: var(--color-white);
+    }
+
+    .header.is-hidden .logo-black {
+        display: none;
+    }
+
+    .header.is-hidden .logo-white {
+        display: block;
+    }
+
+
+    .error-page h1 {
+        font: var(--font-h1-mobile);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bibliography__docs-caption {
+        margin-bottom: 0;
+    }
+
+
+    .detailed-page__doc-size {
+        margin-top: 0.8rem;
+    }
+
+    .header.is-hidden.is-fixed {
+        background-color: rgba(0, 0, 0, 0.6);
     }
 }

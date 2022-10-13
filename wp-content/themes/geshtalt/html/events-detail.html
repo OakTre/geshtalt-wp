@@ -35,13 +35,13 @@
             <nav class="header__nav nav">
               <ul>
                 <li>
-                  <a href="./">Об институте</a>
+                  <a href="./about.html">Об институте</a>
                 </li>
                 <li>
                   <a href="./teachers.html">Преподаватели</a>
                 </li>
                 <li>
-                  <a href="">Список литературы</a>
+                  <a href="./bibliography.html">Список литературы</a>
                 </li>
                 <li>
                   <a href="./news.html">Пресс-центр</a>
@@ -97,7 +97,18 @@
       </div>
 
       <main class="page-main main">
-        <section class="page-intro" style="background-image:url(assets/images/page-intro/img3.jpg);"></section>
+        <section class="page-intro" style="background-image:url(assets/images/page-intro/img3.jpg);">
+          <div class="site-container">
+            <div class="page-intro__link">
+              <svg class="icon icon-arrow-top-big page-intro__link-icon" width="36" height="36">
+                <use xlink:href="assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
+              </svg>
+              <div class="page-intro__link-info">
+                <a href="/">intensive.rugestalt.ru</a><span>Сайт мероприятия</span>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="detail-section">
           <img class="detail-section__bg-img" src="assets/images/detail-bg.svg" alt="">
           <div class="site-container">
@@ -224,7 +235,7 @@
                 <p>Начнем достигать результатов вместе</p>
               </div>
               <p class="contact-us__info">Учиться у нас может любой желающий и не важно какой уровень знаний сейчас присутствует</p>
-              <button class="button contact-us__btn mod-white">Подать заявку</button>
+              <button class="button contact-us__btn mod-white" data-path="program">Подать заявку</button>
             </div>
           </div>
         </section>
@@ -245,19 +256,19 @@
               <nav class="footer__nav">
                 <ul>
                   <li>
-                    <a href="/">Об институте</a>
+                    <a href="./about.html">Об институте</a>
                   </li>
                   <li>
-                    <a href="/">Преподаватели</a>
+                    <a href="./teachers.html">Преподаватели</a>
                   </li>
                   <li>
-                    <a href="/">Список литературы</a>
+                    <a href="./bibliography.html">Список литературы</a>
                   </li>
                   <li>
-                    <a href="/">Пресс-центр</a>
+                    <a href="./news.html">Пресс-центр</a>
                   </li>
                   <li>
-                    <a href="/">Контакты</a>
+                    <a href="./contacts.html">Контакты</a>
                   </li>
                 </ul>
               </nav>

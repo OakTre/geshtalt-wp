@@ -50,7 +50,7 @@ $page_id = get_the_ID();
     </div>
 </section>
 
-<section class="map js-map" data-coords="55.792392, 49.111480" data-center="55.792392, 49.111480">
+<section class="map js-map" data-coords="55.787371, 49.140990" data-center="55.787371, 49.140990">
     <div class="map__container js-map-element"></div>
 </section>
 

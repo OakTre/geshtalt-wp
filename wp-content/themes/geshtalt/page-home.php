@@ -27,7 +27,7 @@ $intro_logo_src = wp_get_attachment_image_url($intro_logo_id, 'full');
                 <div class="intro__heading-text">
                     <div class="intro__company-logo">
                         <img class="intro__company-logo-wrapper" src="<?php echo get_template_directory_uri(); ?>/assets/images/geshtalt-logo-wrapper.svg" alt="">
-                        <img class="intro__company-logo-inner" src="<?php echo get_template_directory_uri(); ?>/assets/images/geshtalt-logo.svg" alt="">
+                        <img class="intro__company-logo-inner" src="<?php echo get_template_directory_uri(); ?>/assets/images/geshtalt-logo1.svg" alt="">
                     </div>
                     <p><?php echo carbon_get_post_meta($page_id, 'intro_text'); ?></p>
                 </div>
@@ -36,28 +36,28 @@ $intro_logo_src = wp_get_attachment_image_url($intro_logo_id, 'full');
         <div class="grid-container intro__bottom">
             <div class="intro__bottom-block">
                 <ul class="intro__cat">
-                    <!-- <li class="intro__cat-item _big">
-                        <a class="intro__cat-link _big" href="">Образование</a>
-                    </li> -->
+                    <li class="intro__cat-item _big">
+                        <a class="intro__cat-link _big" href="<?php echo get_site_url() . '/programmy/' ?>">Образование</a>
+                    </li>
                     <li class="intro__cat-item _big">
                         <a class="intro__cat-link _big" href="<?php echo get_site_url() . '/event/' ?>">Мероприятия</a>
                     </li>
                 </ul>
                 <ul class="intro__cat">
-                    <!-- <li class="intro__cat-item">
-                        <a class="intro__cat-link" href="/">Список литературы</a>
+                    <li class="intro__cat-item">
+                        <a class="intro__cat-link" href="<?php echo get_site_url() . '/spisok-literatury/' ?>">Список литературы</a>
                     </li>
                     <li class="intro__cat-item">
-                        <a class="intro__cat-link" href="/">Об институте</a>
+                        <a class="intro__cat-link" href="<?php echo get_site_url() . '/about/' ?>">Об институте</a>
                     </li>
                     <li class="intro__cat-item">
-                        <a class="intro__cat-link" href="/">Преподаватели</a>
+                        <a class="intro__cat-link" href="<?php echo get_site_url() . '/teacher/' ?>">Преподаватели</a>
                     </li>
                     <li class="intro__cat-item">
-                        <a class="intro__cat-link" href="/">Пресс-центр</a>
-                    </li> -->
+                        <a class="intro__cat-link" href="<?php echo get_site_url() . '/news/' ?>">Пресс-центр</a>
+                    </li>
                     <li class="intro__cat-item">
-                        <a class="intro__cat-link" href="/">Контакты</a>
+                        <a class="intro__cat-link" href="<?php echo get_site_url() . '/kontakty/' ?>">Контакты</a>
                     </li>
                 </ul>
             </div>
@@ -140,7 +140,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
                 <div class="about__content">
                     <div class="about__content-block">
                         <p><?php echo carbon_get_post_meta($page_id, 'about_text'); ?></p>
-                        <!-- <a href="/" class="button about__btn mod-transparent mod-black">Подробнее об институте</a> -->
+                        <a href="<?php echo get_site_url() . '/about/' ?>" class="button about__btn mod-transparent mod-black">Подробнее об институте</a>
                     </div>
                     <div class="about__content-block">
                         <div class="about__content-img-wrapper" style="background-image:url(<?php echo $about_logo_src; ?>);"></div>
@@ -161,7 +161,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-bottom"></use>
                     </svg>
                 </a><span class="catalog__section-name"><?php echo carbon_get_post_meta($page_id, 'index_catalog_text'); ?></span>
-                <!-- <a href="/" class="button catalog__btn mod-transparent mod-black">Подробнее</a> -->
+                <a href="<?php echo get_site_url() . '/programmy/' ?>" class="button catalog__btn mod-transparent mod-black">Подробнее</a>
             </div>
             <div class="catalog__block">
                 <h3 class="catalog__legend"><span>Подготовительные курсы</span>
@@ -303,7 +303,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
     </div>
 </section>
 
-<!-- <section class="news js-parent-page-slider" data-slides-number="3">
+<section class="news js-parent-page-slider" data-slides-number="3">
     <div class="site-container news__container js-fade-in" data-intersection-ratio="0.1">
         <h2 class="site-second-heading news__heading">Пресс-центр</h2>
         <div class="grid-container news__container">
@@ -324,53 +324,38 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
             <div class="news__block">
                 <ul class="news__list swiper js-page-slider">
                     <div class="swiper-wrapper">
-                        <li class="news__item swiper-slide">
-                            <div class="news-card">
-                                <div class="news-card__header"><span class="news-card__tag">12 ноя 2022</span>
-                                    <img class="news-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/news-card.jpg" alt="«Как психолог помогает мне пережить происходящее вокруг?»">
+                        <?php
+                        $news = carbon_get_post_meta($page_id, 'news_items_index');
+                        $news_ids = wp_list_pluck($news, 'id');
+
+                        $news_args = [
+                            'post_type' => 'news',
+                            'post__in' => $news_ids
+                        ];
+                        $news_query = new WP_Query($news_args);
+                        ?>
+                        <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+                            <?php
+                            $news_id = get_the_ID();
+                            ?>
+                            <li class="news__item swiper-slide">
+                                <div class="news-card">
+                                    <div class="news-card__header">
+                                        <span class="news-card__tag"><?php the_date( 'j M Y'); ?></span>
+                                        <img class="news-card__img" src="<?php echo get_the_post_thumbnail_url($news_id, 'carts'); ?>" alt="<?php the_title(); ?>">
+                                    </div>
+                                    <a class="news-card__link" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
                                 </div>
-                                <a class="news-card__link" href="/">«Как психолог помогает мне пережить происходящее вокруг?»</a>
-                            </div>
-                        </li>
-                        <li class="news__item swiper-slide">
-                            <div class="news-card">
-                                <div class="news-card__header"><span class="news-card__tag">12 ноя 2022</span>
-                                    <img class="news-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/news-card.jpg" alt="«Как психолог помогает мне пережить происходящее вокруг?»">
-                                </div>
-                                <a class="news-card__link" href="/">«Как психолог помогает мне пережить происходящее вокруг?»</a>
-                            </div>
-                        </li>
-                        <li class="news__item swiper-slide">
-                            <div class="news-card">
-                                <div class="news-card__header"><span class="news-card__tag">12 ноя 2022</span>
-                                    <img class="news-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/news-card.jpg" alt="«Как психолог помогает мне пережить происходящее вокруг?»">
-                                </div>
-                                <a class="news-card__link" href="/">«Как психолог помогает мне пережить происходящее вокруг?»</a>
-                            </div>
-                        </li>
-                        <li class="news__item swiper-slide">
-                            <div class="news-card">
-                                <div class="news-card__header"><span class="news-card__tag">12 ноя 2022</span>
-                                    <img class="news-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/news-card.jpg" alt="«Как психолог помогает мне пережить происходящее вокруг?»">
-                                </div>
-                                <a class="news-card__link" href="/">«Как психолог помогает мне пережить происходящее вокруг?»</a>
-                            </div>
-                        </li>
-                        <li class="news__item swiper-slide">
-                            <div class="news-card">
-                                <div class="news-card__header"><span class="news-card__tag">12 ноя 2022</span>
-                                    <img class="news-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/news-card.jpg" alt="«Как психолог помогает мне пережить происходящее вокруг?»">
-                                </div>
-                                <a class="news-card__link" href="/">«Как психолог помогает мне пережить происходящее вокруг?»</a>
-                            </div>
-                        </li>
+                            </li>
+                        <?php endwhile; ?>
+
                     </div>
                 </ul>
                 <button class="news__btn">Смотреть все</button>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 <?php echo get_template_part('contact-us-block'); ?>
 

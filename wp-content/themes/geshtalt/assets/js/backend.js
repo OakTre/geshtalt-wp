@@ -46,26 +46,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   const filtersitems = Array.from(document.querySelectorAll(".js-filter-item"));
-  const preloader = document.querySelector(".page-preloader");
-  const listContainer = document.querySelector(".js-filter-list");
-  const yOffset = -90;
-  const y = listContainer.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  if (filtersitems.length !== 0) {
+    const preloader = document.querySelector(".page-preloader");
+    const listContainer = document.querySelector(".js-filter-list");
+    const yOffset = -130;
+    const y = listContainer.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-  filtersitems.forEach(filter => {
-    filter.addEventListener("change", () => {
-      const filterFrom = filter.closest("form");
-      const formData = new FormData(filterFrom);
-      preloader.classList.add("is-active");
+    filtersitems.forEach(filter => {
+      filter.addEventListener("change", () => {
+        const filterFrom = filter.closest("form");
+        const formData = new FormData(filterFrom);
+        preloader.classList.add("is-active");
 
-      axios.post(true_obj.ajaxurl, formData)
-        .then(function (response) {
-          listContainer.innerHTML = response.data;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-          preloader.classList.remove("is-active");
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+        axios.post(true_obj.ajaxurl, formData)
+          .then(function (response) {
+            listContainer.innerHTML = response.data;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            preloader.classList.remove("is-active");
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      });
     });
-  });
+  }
 });

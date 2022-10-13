@@ -30,7 +30,7 @@
     $prelast = $derectory[count($derectory) - 3];
     ?>
 
-    <header class="header <?php echo $header_class; ?> <?php if ($last === 'event' || $prelast === 'event' ) echo "header--white"; ?>">
+    <header class="header <?php echo $header_class; ?> <?php if ($last === 'event' || $last === 'about' || $prelast === 'event') echo "header--white"; ?>">
       <div class="site-container header__container grid-container">
         <div class="header__block">
           <a class="header__logo" href="<?php echo get_home_url(); ?>">
@@ -62,6 +62,9 @@
         <button class="menu__close" aria-label="Закрыть меню"><span></span><span></span>
         </button>
         <ul class="menu__list">
+          <li class="menu__item">
+            <a class="menu__legend-link" href="<?php echo get_site_url() . '/programmy/' ?>">Образование</a>
+          </li>
           <li class="menu__item">
             <a class="menu__legend-link" href="<?php echo get_site_url() . '/event/' ?>">Мероприятия</a>
           </li>
