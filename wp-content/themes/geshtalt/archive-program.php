@@ -35,7 +35,15 @@ $catalog_cat_items = get_terms([
                                 'field' => 'slug',
                                 'terms' => $catSlug
                             ],
-                        ]
+                        ],
+                        'orderby' => 'text_field',
+                        'order' => 'asc',
+                        'meta_query' => array(
+                            'text_field' => array(
+                                'key' => 'program_caption',
+                                'compare' => 'EXISTS',
+                            ),
+                        ),
                     );
                     $loop = new WP_Query($slug_posts);
                     ?>

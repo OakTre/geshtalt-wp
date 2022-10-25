@@ -91,7 +91,7 @@ Container::make('post_meta', 'Дополнительные поля')
 
 // архив программы
 Container::make('post_meta', 'Дополнительные поля')
-  ->show_on_page(66)
+  ->show_on_page(78)
 
   ->add_tab('Мероприятия', [
     Field::make('text', 'catalog_events_heading', 'Текст-заголовок')
@@ -109,7 +109,7 @@ Container::make('post_meta', 'Дополнительные поля')
 
 // архив новостей
 Container::make('post_meta', 'Дополнительные поля')
-  ->show_on_page(64)
+  ->show_on_page(76)
 
   ->add_tab('Главная новость', [
     Field::make('association', 'news_main_items', 'Главная новость')
@@ -123,7 +123,7 @@ Container::make('post_meta', 'Дополнительные поля')
 
 // о компании
 Container::make('post_meta', 'Дополнительные поля')
-  ->show_on_page(79)
+  ->show_on_page(74)
 
   ->add_tab('Первый экран', [
     Field::make('image', 'about_intro_img', 'Изображение на фоне'),
@@ -167,7 +167,7 @@ Container::make('post_meta', 'Дополнительные поля')
 
 // список литературы
 Container::make('post_meta', 'Дополнительные поля')
-  ->show_on_page(96)
+  ->show_on_page(80)
 
   ->add_tab('Документы', [
     Field::make('complex', 'bibliography_parts', 'Секция')
@@ -246,8 +246,10 @@ Container::make('post_meta', 'Дополнительные поля')
 Container::make('post_meta', 'Дополнительные поля')
   ->show_on_post_type('news')
 
-  ->add_tab('Даты', [
+  ->add_tab('Контент', [
     Field::make('checkbox', 'news_item_main', 'Выделить новость'),
+    Field::make('text', 'yt', 'Видео с ютуба'),
+    Field::make('image', 'yt_preview', 'Видео с ютуба превьюшка'),
     Field::make('association', 'news_items', 'Другие новости')
       ->set_types([
         [

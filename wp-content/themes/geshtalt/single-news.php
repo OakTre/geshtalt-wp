@@ -24,6 +24,18 @@ $page_id = get_the_ID();
             <div class="_block">
                 <img src="<?php echo get_the_post_thumbnail_url($page_id, 'carts'); ?>" alt="<?php the_title(); ?>">
                 <?php the_content(); ?>
+
+                <?php
+                    $yt = carbon_get_post_meta($page_id, 'yt');
+                    $yt_preview = carbon_get_post_meta($page_id, 'yt_preview');
+                    $yt_src = wp_get_attachment_image_url($yt_preview, 'full');
+                ?>
+
+                <?php if ($yt) { ?>
+                    <div class="yotube js-play-video" data-video-url="<?php echo $yt; ?>">
+                        <img class="yotube__preview lazyload" data-src="<?php echo $yt_src; ?>" alt="Превью для видео">
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -67,7 +79,7 @@ $page_id = get_the_ID();
                             <li class="news__item swiper-slide">
                                 <div class="news-card">
                                     <div class="news-card__header">
-                                        <span class="news-card__tag">12 ноя 2022</span>
+                                        <span class="news-card__tag"><?php the_date('j M Y'); ?></span>
                                         <img class="news-card__img" src="<?php echo get_the_post_thumbnail_url($news_id, 'carts'); ?>" alt="<?php the_title(); ?>">
                                     </div>
                                     <a class="news-card__link" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>

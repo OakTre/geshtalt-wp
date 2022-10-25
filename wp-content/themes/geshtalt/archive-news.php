@@ -56,7 +56,7 @@ $catalog_cat_items = get_terms([
                     <div class="_block">
                         <img class="news-cart__img" src="<?php echo get_the_post_thumbnail_url($news_id, 'carts'); ?>" alt="<?php the_title(); ?>">
                     </div>
-                    <div class="_block"><span class="news-cart__legend">12 ноя 2022</span>
+                    <div class="_block"><span class="news-cart__legend"><?php the_date('j M Y'); ?></span>
                         <a class="news-cart__heading" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
                     </div>
                 </div>
@@ -72,9 +72,15 @@ $catalog_cat_items = get_terms([
                     <?php if (have_posts()) : ?>
 
                         <?php while (have_posts()) : the_post(); ?>
-                            <li class="news-page-content__item">
-                                <?php echo get_template_part('news-card'); ?>
-                            </li>
+                            <?php
+                            $news_id2 = get_the_ID();
+                            if (!carbon_get_post_meta($news_id2, 'news_item_main')) {
+                            ?>
+                                <li class="news-page-content__item">
+                                    <?php echo get_template_part('news-card'); ?>
+                                </li>
+                            <? break;
+                            } ?>
                         <?php endwhile; ?>
 
                     <?php endif; ?>

@@ -59,9 +59,11 @@ $page_id = get_the_ID();
                                 $class = $item["doc_link"] ? "mod-left-auto" : "";
                             ?>
                                 <li>
-                                    <svg class="icon icon-arrow-top-big detailed-page__doc-icon _mobile" width="25" height="25">
-                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
-                                    </svg>
+                                    <?php if (empty(!$item["doc_link"])) { ?>
+                                        <svg class="icon icon-arrow-top-big detailed-page__doc-icon _mobile" width="25" height="25">
+                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
+                                        </svg>
+                                    <?php } ?>
                                     <a href="<?php echo $attachment; ?>" target="_blank">
                                         <div>
                                             <?php echo $item["doc_name"]; ?>
@@ -69,12 +71,14 @@ $page_id = get_the_ID();
                                                 <div class="bibliography__docs-caption"><?php echo $item["doc_descr"]; ?></div>
                                             <?php } ?>
                                         </div>
-                                        <?php if (!$item["doc_link"]) { ?>
+                                        <?php if (empty(!$item["doc"])) { ?>
                                             <div class="detailed-page__doc-size">(<?php echo $last; ?>, <?php echo $size; ?>)</div>
                                         <?php } ?>
-                                        <svg class="icon icon-arrow-top-big detailed-page__doc-icon <? echo $class; ?>" width="25" height="25">
-                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
-                                        </svg>
+                                        <?php if (empty(!$item["doc_link"])) { ?>
+                                            <svg class="icon icon-arrow-top-big detailed-page__doc-icon <? echo $class; ?>" width="25" height="25">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/images/sprites/sprite-mono.svg#arrow-top-big"></use>
+                                            </svg>
+                                        <?php } ?>
                                     </a>
                                 </li>
                             <?php endforeach; ?>

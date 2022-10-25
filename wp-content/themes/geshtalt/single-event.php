@@ -121,7 +121,7 @@ $link = carbon_get_post_meta($page_id, 'event_link');
         <div class="events__grid-container">
             <div class="events__block"></div>
             <div class="events__block">
-                <button class="events__more-btn more-events__btn">Показать еще</button>
+                <a href="<?php echo get_site_url() . '/event/' ?>" class="events__more-btn more-events__btn">Показать еще</a>
             </div>
         </div>
     </div>

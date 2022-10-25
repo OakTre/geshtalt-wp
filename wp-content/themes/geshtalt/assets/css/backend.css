@@ -40,6 +40,83 @@
     color: var(--color-secondary-blue);
 }
 
+.detail-section h3 {
+    font: var(--font-h3);
+    margin: 2rem 0;
+}
+
+.detail-section h4 {
+    font: var(--font-h4);
+    margin: 1.5rem 0;
+}
+
+.detail-section h5 {
+    font: var(--font-h4);
+    margin: 1.5rem 0;
+}
+
+.detail-section h6 {
+    font: var(--font-h4);
+    margin: 1rem 0;
+}
+
+
+.detail-section a {
+    text-decoration: underline;
+}
+
+.detail-section a:hover {
+    text-decoration: none;
+}
+
+.detail-section__content-slide {
+    height: auto;
+}
+
+.detail-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    font: var(--font-h4);
+}
+
+.detail-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.detail-section ul li::before {
+    position: absolute;
+    top: 1.2rem;
+    left: 0;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: var(--color-primary-blue);
+    border-radius: 50%;
+    content: "";
+}
+
+.detail-section__section-name {
+    text-decoration: none !important;
+}
+
+.detail-section__heading,
+.detailed-page-intro__heading {
+    font: 400 8rem/85% var(--main-ff);
+}
+
+.detail-section__content-slider .detail-section__content-slide {
+    background: rgba(0, 0, 0, 0.1);
+    height: 71.4rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+}
+
+.detail-section__content-slider .detail-section__content-slide img {
+    height: 100%;
+    width: auto;
+    border-radius: 0;
+}
 
 @keyframes scales {
     from {
@@ -74,6 +151,17 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .detail-section__heading {
+        font: var(--font-h2);
+    }
+    
+    .detail-section__content-slider .detail-section__content-slide {
+        height: 32rem;
+        border-radius: 1.2rem;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .bibliography__docs-caption {
         margin-bottom: 0;
@@ -86,5 +174,44 @@
 
     .header.is-hidden.is-fixed {
         background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .detail-section h3 {
+        font: var(--font-h3-mobile);
+        margin: 2rem 0;
+    }
+
+    .detail-section h4 {
+        font: var(--font-h4-mobile);
+        margin: 1.5rem 0;
+    }
+
+    .detail-section h5 {
+        font: var(--font-h4-mobile);
+        margin: 1.5rem 0;
+    }
+
+    .detail-section h6 {
+        font: var(--font-h4-mobile);
+        margin: 1rem 0;
+    }
+
+    .detail-section ul li {
+        font: var(--font-text-t1-mobile);
+        margin-bottom: 1rem;
+        padding-left: 1.7rem;
+    }
+
+    .detail-section ul li::before {
+        top: 0.8rem;
+    }
+
+    .detail-section__heading,
+    .detailed-page-intro__heading {
+        font: var(--font-h2-mobile);
+    }
+
+    .detail-section__content-slider .detail-section__content-slide {
+        height: 19rem;
     }
 }

@@ -271,7 +271,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
                     </svg>
                 </a>
                 <p><?php echo carbon_get_post_meta($page_id, 'index_events_text'); ?></p>
-                <a href="/" class="button events__btn mod-transparent">Подробнее</a>
+                <a href="<?php echo get_site_url() . '/event/' ?>" class="button events__btn mod-transparent">Подробнее</a>
             </div>
         </div>
         <ul class="events__list">
@@ -351,7 +351,7 @@ $about_logo_src = wp_get_attachment_image_url($about_logo_id, 'full');
 
                     </div>
                 </ul>
-                <button class="news__btn">Смотреть все</button>
+                <a href="<?php echo get_site_url() . '/news/' ?>" class="news__btn">Смотреть все</a>
             </div>
         </div>
     </div>

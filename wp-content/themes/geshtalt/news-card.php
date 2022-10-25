@@ -10,7 +10,7 @@
         </a>
     </div>
     <div class="_block">
-        <span class="news-cart__legend">12 ноя 2022</span>
+        <span class="news-cart__legend"><?php echo the_date( 'j M Y'); ?></span>
         <a class="news-cart__heading" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
     </div>
 </div>

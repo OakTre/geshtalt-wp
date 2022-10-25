@@ -26,9 +26,12 @@ $catalog_cat_items = get_terms([
             <input type="hidden" name="action" value="myfilter">
             <input type="hidden" name="taxonomy" value="event">
 
-            <?php foreach ($catalog_cat_items as $item) : ?>
+            <?php
+                foreach ($catalog_cat_items as $item) : 
+                $active = $item->name === 'Актуальные' ? 'checked' : '';
+            ?>
                 <label class="filter__item">
-                    <input class="visually-hidden js-filter-item" type="radio" name="filter" value="<?php echo $item->slug ?>">
+                    <input class="visually-hidden js-filter-item" <?php echo $active; ?> type="radio" name="filter" value="<?php echo $item->slug ?>">
                     <span class="filter__name"><?php echo $item->name ?></span>
                 </label>
             <?php endforeach; ?>
