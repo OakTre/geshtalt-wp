@@ -30,7 +30,7 @@
     $prelast = $derectory[count($derectory) - 3];
     ?>
 
-    <header class="header <?php echo $header_class; ?> <?php if ($last === 'event' || $last === 'about' || $prelast === 'event') echo "header--white"; ?>">
+    <header class="header <?php echo $header_class; ?> <?php if ($last === 'event' || $last === 'about' || $prelast === 'event' || $prelast === 'teacher') echo "header--white"; ?>">
       <div class="site-container header__container grid-container">
         <div class="header__block">
           <a class="header__logo" href="<?php echo get_home_url(); ?>">

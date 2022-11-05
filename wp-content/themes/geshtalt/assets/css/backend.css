@@ -2,6 +2,10 @@
     margin-bottom: 7rem;
 }
 
+.preloader {
+    z-index: 60;
+}
+
 .page-preloader {
     position: fixed;
     top: 0;
@@ -213,5 +217,11 @@
 
     .detail-section__content-slider .detail-section__content-slide {
         height: 19rem;
+    }
+
+    .bibliography__docs--page-teacher .detailed-page__doc-list li a {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

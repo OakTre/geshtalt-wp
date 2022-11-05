@@ -121,6 +121,15 @@ Container::make('post_meta', 'Дополнительные поля')
       ]),
   ]);
 
+
+// архив Преподаватели
+Container::make('post_meta', 'Дополнительные поля')
+  ->show_on_page(123)
+
+  ->add_tab('Первый экран', [
+    Field::make('image', 'intro_taecher_img', 'Изображение на фоне первого экрана'),
+  ]);
+
 // о компании
 Container::make('post_meta', 'Дополнительные поля')
   ->show_on_page(74)
@@ -240,6 +249,16 @@ Container::make('post_meta', 'Дополнительные поля')
 
   ->add_tab('Даты', [
     Field::make('rich_text', 'teacher_descr', 'Специализации')
+  ])
+  ->add_tab('Документы', [
+    Field::make('complex', 'teacher_docs', 'Документы')
+      ->add_fields([
+        Field::make('text', 'doc_link', 'Ссылка на файл'),
+        Field::make('text', 'doc_name', 'Название'),
+        Field::make('text', 'doc_descr', 'Описание'),
+        Field::make('file', 'doc', 'Документ')
+          ->set_value_type('id')
+      ]),
   ]);
 
 // новости
